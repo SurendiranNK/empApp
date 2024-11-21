@@ -1,0 +1,86 @@
+
+   <ng-container class="">
+    <header class="header">
+       <h5 class="m-0 p-0 fs-6">Edit Employee Details</h5>
+    </header>
+    <div class="mt-4 p-4">
+       <div class="max-w-screen-md mx-auto p-2 mb-12">
+          <div class="card_form">
+
+            <!-- <pre>{{this.myForm.value|json}}</pre> -->
+             <form *ngIf="employee as emp" class="w-full mx-auto" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <div class="relative mb-6">
+                   <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person text-blue-600" viewBox="0 0 16 16">
+                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                      </svg>
+                   </div>
+                   <input [(ngModel)]="emp.name" formControlName="name" type="text" id="input-group-1" class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5 focus:outline-none" placeholder="John Robert">
+                </div>
+                <div class="flex items-center space-x-2 relative mb-6">
+                   <select [(ngModel)]="emp.role"  formControlName="role" class="appearance-none  w-full bg-white-50 text-sm border border-gray-300 text-gray-900 rounded px-3 py-2 focus:outline-none ">
+                      <option  value="" disabled selected>---Select the role---</option>
+                      <option value="Product Designer">Product Designer</option>
+                      <option value="Flutter Developer">Flutter Developer</option>
+                      <option value="Angular Developer">Angular Developer</option>
+                      <option value="Full Stack Developer">Full Stack Developer</option>
+                      <option value="UI/UX Designer">UI/UX Designer</option>
+                      <option value="Graphic Designer">Graphic Designer</option>
+                   </select>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill absolute top-1/2 right-3 w-5 h-5 text-blue-600 transform -translate-y-1/2 pointer-events-none" viewBox="0 0 16 16">
+                      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                   </svg>
+                </div>
+
+
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="relative">
+                     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-date mr-3 text-blue-600" viewBox="0 0 16 16">
+                           <path d="M6.445 12.688V7.354h-.633A13 13 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23"/>
+                           <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+                           <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z"/>
+                       </svg>
+                     </div>
+                     <input  formControlName="dateOfJoining"
+                     name="dateOfJoining" [(ngModel)]="emp.dateOfJoining" (click)="openDatePickerDialog(1)" readonly id="input-group-1" class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5 focus:outline-none" placeholder="No Date">
+                  </div>
+
+                  <div class="flex">
+                     <div class="my-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right text-blue-600 mr-2" viewBox="0 0 16 16">
+                           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                        </svg>
+                     </div>
+              
+                     <div class="relative w-full">
+                        
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-date mr-3 text-blue-600" viewBox="0 0 16 16">
+                              <path d="M6.445 12.688V7.354h-.633A13 13 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23"/>
+                              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+                              <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        </div>
+                        <input formControlName="dateOfLeaving" [(ngModel)]="emp.dateOfLeaving"
+                        name="dateOfLeaving" (click)="openDatePickerDialog(2)" readonly  id="input-group-1" class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5 focus:outline-none" placeholder="No Date">
+                     </div>
+                  </div>
+         
+               </div>
+
+
+               <div class="fixed bottom-0 left-0 w-full bg-gray-50 text-white text-right py-2 px-16">
+                  <button  (click)="cancel()" class="bg-blue-50 text-sm text-blue-500 rounded-md  px-3 py-2 mx-3 ">Cancel</button>
+                  <button   class="bg-blue-500 text-sm rounded-md px-3 py-2 text-white"
+                   type="submit" >Save</button>
+               </div>
+             </form>
+          </div>
+       </div>
+    </div>
+
+
+
+
+ </ng-container>

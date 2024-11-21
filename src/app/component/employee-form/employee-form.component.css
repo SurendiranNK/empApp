@@ -1,0 +1,8 @@
+
+  .role-select {
+    position: relative;
+  }
+  .dropdown-menu {
+    max-height: 150px;
+    overflow-y: auto;
+  }

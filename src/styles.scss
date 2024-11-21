@@ -1,0 +1,29 @@
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  /* Header */
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    position: relative;
+  }
+  
+
+  .header {
+    background-color: #2196F3; /* Blue header */
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
